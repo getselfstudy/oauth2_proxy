@@ -38,7 +38,7 @@ steps:
               - ${{build.imageId}}:
                   - CF_QUALITY: false
       push:
-        title: "Pushing image to cfcr"
+        title: "Pushing image to gcr"
         type: "push"
         image_name: "getselfstudy-oauth2_proxy"
         registry: "gcr"
