@@ -40,11 +40,11 @@ func (p *OIDCProvider) Redeem(redirectURL, code string) (s *sessions.SessionStat
 	}
 	token, err := c.Exchange(ctx, code)
 	if err != nil {
-		return nil, fmt.Errorf("token exchange: %v", err)
+		return nil, fmt.Errorf("token exchange: %v token: %v", err, token)
 	}
 	s, err = p.createSessionState(ctx, token)
 	if err != nil {
-		return nil, fmt.Errorf("unable to update session: %v", err)
+		return nil, fmt.Errorf("unable to update session: %v token: %v s: %s", err, token, s)
 	}
 	return
 }
